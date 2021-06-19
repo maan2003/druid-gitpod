@@ -10,6 +10,6 @@ tasks:
 
   - name: watch for changes and rebuild
     command: cargo watch -s "wasm-pack build --target web"
-  
+
   - name: http server
-    command: cd pkg && python -m http.server
+    command: cd pkg && python -m http.server 8080
