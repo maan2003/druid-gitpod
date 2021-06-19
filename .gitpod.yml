@@ -13,3 +13,7 @@ tasks:
 
   - name: http server
     command: cd pkg && python -m http.server 8080
+
+github:
+  prebuilds:
+    master: true
