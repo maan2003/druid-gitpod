@@ -1,4 +1,15 @@
 image:
   file: Dockerfile
 ports:
-  - port: 6080
+  - port: 8080
+    onOpen: open-preview
+
+tasks:
+  - name: create a build cache
+    init: wasm-pack build --target web
+
+  - name: watch for changes and rebuild
+    command: cargo watch -s "wasm-pack build --target web"
+  
+  - name: http server
+    command: cd pkg && python -m http.server
